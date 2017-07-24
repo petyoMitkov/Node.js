@@ -1,6 +1,6 @@
 # Node.js Intro
 
-## Using NVM to changing Node.js bertion
+## Using NVM to changing Node.js vertion
     1. Download for Windows:  https://github.com/coreybutler/nvm-windows
     2. Ensure NVM is added to $PATH: Open terminal or CMD and type $ nvm 
     3. Open Terminal or CMD and type: nvm install 5

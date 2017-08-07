@@ -1,0 +1,35 @@
+- Download MongoBD 		// auto instal in C:/Program Files/MongoDB
+
+- Go into bin folder           // mongod = server; mongo = mongo client
+
+-! Create in C:/ folder "data" and folder "db" inside 
+
+---------------------------------------------------------
+
+For work with MongoDB by Node.js we need a driver: 
+
+info methods: http://mongodb.github.io/node-mongodb-native/2.0/api/
+
+install MongoDB driver for NOde.js: 
+- npm install mongodb -g
+- (npm link mongodb) if there is an error
+
+
+ (robomongo - tools for testing and overview bd colections)
+
+----------------------------------------------------------
+
+*Go to VS Code and main.js : 
+
+01. npm init   // make jsconfig.json
+02. npm install mongodb -g 
+03. npm  install typings -g  //for intelisence! from gitHub repo
+04. typings install dt~mongodb --global --save
+05. typings install dt~node --global --save
+06. npm install
+
+// article: Node.js and vs code end to end
+// https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
+
+Connect to MongoDB
+http://mongodb.github.io/node-mongodb-native/2.2/tutorials/connect/

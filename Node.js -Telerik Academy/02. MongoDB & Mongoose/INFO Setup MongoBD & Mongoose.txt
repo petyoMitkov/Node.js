@@ -11,7 +11,7 @@ For work with MongoDB by Node.js we need a driver:
 info methods: http://mongodb.github.io/node-mongodb-native/2.0/api/
 
 install MongoDB driver for NOde.js: 
-- npm install mongodb -g
+- npm install mongodb -g 
 - (npm link mongodb) if there is an error
 
 
@@ -22,7 +22,7 @@ install MongoDB driver for NOde.js:
 *Go to VS Code and main.js : 
 
 01. npm init   // make jsconfig.json
-02. npm install mongodb -g 
+02. npm install mongodb --save 
 03. npm  install typings -g  //for intelisence! from gitHub repo
 04. typings install dt~mongodb --global --save
 05. typings install dt~node --global --save
@@ -33,3 +33,16 @@ install MongoDB driver for NOde.js:
 
 Connect to MongoDB
 http://mongodb.github.io/node-mongodb-native/2.2/tutorials/connect/
+
+----------------------------------------------------------------
+
+ * Mongoose *
+
+Installing Mongoose: 
+ $ npm install mongoose (-g) --save ( use --save to add to package.json)
+
+In Node.js load the module and connect to the database:
+ const mongoose = require('mongoose');
+ mongoose.connect('mongodb//localhost:27017/DatabaseName')
+
+//free hosting for mongoDB => mlab.com

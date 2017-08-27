@@ -46,3 +46,12 @@ In Node.js load the module and connect to the database:
  mongoose.connect('mongodb//localhost:27017/DatabaseName')
 
 //free hosting for mongoDB => mlab.com
+
+Mongoose intellisense: typings install dt~mongoose --global
+
+---------------------------------------------------------------------
+in mongo client commands
+
+show dbs
+use dbName
+db.dbName.find({})

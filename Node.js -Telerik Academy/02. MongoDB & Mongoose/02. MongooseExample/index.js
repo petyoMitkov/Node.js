@@ -42,6 +42,7 @@ asus.save((err, entry, numAffected) => {
 // =========================================
 //          Using instance methods
 // =========================================
+/*
 const laptopSchema = mongoose.Schema({
     model: String,
     releaseDate: Date,
@@ -73,4 +74,62 @@ const lenovo = new Laptop2({
 
 lenovo.save((err, entry) => {
     console.log(entry.getDatailedDescription());
+});
+*/
+
+//=============================================
+//      Working with Virtual properties
+//=============================================
+/*
+const hamsterSchema = mongoose.Schema({
+    name: String,
+    kolibka: { type: Number, min: 10, max: 60 }
+});
+
+// virtual property have geter and seter
+hamsterSchema.virtual('CurrentDate').get(function() {
+    return Date.now();
+});
+
+const Hamster = mongoose.model('Hamster', hamsterSchema);
+const newHamster = new Hamster({
+    name: 'Pesho',
+    kolibka: 50
+});
+
+newHamster.save((err, sevedObj) => {
+    console.log(sevedObj.CurrentDate);
+});
+*/
+
+//================================================
+//  Built-in Property Validators
+//================================================
+
+const productNumberMatch = /[a-zA-Z1-9]/;
+const displaySizesEnumArr = ['13', '15.6', '17.3', '18', '21'];
+
+var complexLaptopSchema = mongoose.Schema({
+    model: String,
+    productNumber: {
+        type: String,
+        require: true,
+        match: productNumberMatch //Match validator
+    },
+    displaySize: {
+        type: String,
+        require: true,
+        enum: displaySizesEnumArr //Enum validator
+    },
+    priceInDolors: Number,
+    discountPercentage: {
+        type: Number,
+        require: false,
+        min: 5, //Number validator
+        max: 25 //Number validator
+    },
+    releaseDate: {
+        type: Date,
+        default: Date.now // !!! not Date.now() !!!
+    }
 });

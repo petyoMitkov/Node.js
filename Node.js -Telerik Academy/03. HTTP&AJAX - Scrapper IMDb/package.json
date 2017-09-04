@@ -1,0 +1,16 @@
+{
+  "name": "scrapper-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Petyo Mitkov",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jsdom": "^11.2.0",
+    "request": "2.81.0"
+  }
+}

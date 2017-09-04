@@ -105,7 +105,7 @@ newHamster.save((err, sevedObj) => {
 //================================================
 //  Built-in Property Validators
 //================================================
-
+/*
 const productNumberMatch = /[a-zA-Z1-9]/;
 const displaySizesEnumArr = ['13', '15.6', '17.3', '18', '21'];
 
@@ -133,3 +133,51 @@ var complexLaptopSchema = mongoose.Schema({
         default: Date.now // !!! not Date.now() !!!
     }
 });
+*/
+
+// ==================================================
+//              Custom Validators
+// ==================================================
+/*
+const stringSizeValidator = [
+    function(val) {
+        return val.length > 0 && val.length <= 60;
+    },
+    'String must be between 1 and 60 charecters long'
+];
+const personSchema = mongoose.Schema({
+    firstName: {
+        type: String,
+        require: true,
+        validator: stringSizeValidator
+    },
+    secondName: {
+        type: String,
+        require: true,
+        validator: stringSizeValidator
+    }
+});
+*/
+// Custom Number Validatior
+/*
+const numberSchema = mongoose.Schema({
+    value: {
+        type: Number,
+        require: true,
+        validate: {
+            validator: function(val) {
+                return val % 2 === 0;
+            },
+            message: '{VALUE} Not valid number!'
+        }
+    }
+});
+const Num = mongoose.model('Number', numberSchema);
+const myNum = new Num({
+    value: 3
+});
+myNum.save((err, result) => {
+    console.log(err.message);
+    console.log(result);
+});
+*/

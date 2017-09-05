@@ -7,26 +7,17 @@ const genres = ["fantasy", "horrer", "comedy", "action", "sci-fi"];
 
 //const request = require("request");
 const httpRequester = require("./utils/http-requester");
-
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const { window } = new JSDOM(`<!DOCTYPE html>`);
-const $ = require('jQuery')(window);
+const htmlParser = require("./utils/html-parser");
 
 httpRequester.get(listMoviesUrl)
     .then((result) => {
         const selector = ".col-title span[title] a"; //IMDb in Compact view
-        const body = result.body;
-        $("body").html(body);
-
-        let movies = [];
-        $(selector).each((index, item) => {
-            const $item = $(item);
-
-            movies.push({
-                title: $item.html(),
-                url: $item.attr("href")
-            });
-        });
+        const html = result.body;
+        return htmlParser.parsSimpleMovie(selector, html);
+    })
+    .then((movies) => {
         console.log(movies);
-    }).catch((err) => {});
+    })
+    .catch((err) => {
+        console.log(err, { colors: true });
+    });

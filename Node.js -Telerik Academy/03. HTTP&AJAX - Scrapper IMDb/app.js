@@ -5,21 +5,28 @@ const listMoviesUrl = "http://www.imdb.com/search/title?genres=fantasy&title_typ
 
 const genres = ["fantasy", "horrer", "comedy", "action", "sci-fi"];
 
-const request = require("request");
+//const request = require("request");
+const httpRequester = require("./utils/http-requester");
 
-//const $ = require("jquery");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const { window } = new JSDOM(`<!DOCTYPE html>`);
 const $ = require('jQuery')(window);
 
+httpRequester.get(listMoviesUrl)
+    .then((result) => {
+        const selector = ".col-title span[title] a"; //IMDb in Compact view
+        const body = result.body;
+        $("body").html(body);
 
-request(listMoviesUrl, function(err, res, body) {
-    const selector = ".col-title span[title] a"; //IMDb in Compact view
-    $("body").html(body);
+        let movies = [];
+        $(selector).each((index, item) => {
+            const $item = $(item);
 
-    console.log($(selector).length);
-});
-
-
-//Telerik video until 34min...
+            movies.push({
+                title: $item.html(),
+                url: $item.attr("href")
+            });
+        });
+        console.log(movies);
+    }).catch((err) => {});

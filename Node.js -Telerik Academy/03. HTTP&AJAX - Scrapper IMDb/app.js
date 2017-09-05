@@ -1,7 +1,7 @@
 /* globals console require */
 "use strict";
 
-const listMoviesUrl = "http://www.imdb.com/search/title?genres=fantasy&title_type=feature&sort=moviemeter,asc&page=1&view=simple&ref_=adv_prv";
+const os = require("os");
 
 const genres = ["fantasy", "horrer", "comedy", "action", "sci-fi"];
 const pagesCount = 2;
@@ -19,6 +19,10 @@ genres.forEach(genre => {
     }
 });
 
+const fs = require("fs");
+let writableStream = fs.createWriteStream("./output.js", "utf8");
+
+
 function getMoviesFromUrl(url) {
     console.log("Working with: " + url);
     httpRequester.get(url)
@@ -28,9 +32,12 @@ function getMoviesFromUrl(url) {
             return htmlParser.parsSimpleMovie(selector, html);
         })
         .then((movies) => {
+            writableStream.write(JSON.stringify(movies));
+            writableStream.write(os.EOL);
             console.log(movies.length);
             //start with next page
             if (urlsQueue.isEmpty()) {
+                writableStream.end();
                 return;
             }
             setTimeout(() => {

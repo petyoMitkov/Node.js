@@ -22,6 +22,10 @@ http://telerikacademy.com/Courses/LectureResources/Video/10120/%D0%92%D0%B8%D0%B
 07. npm install --save pug 
     npm install --save-dev @types/pug
 
+
+Bootstrap: npm install --save bootstrap
+        (no need install typeings)
+
 Others: 
     npm install -g nodemon
     npm install --save-dev nodemon

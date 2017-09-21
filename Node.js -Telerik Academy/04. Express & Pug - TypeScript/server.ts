@@ -2,9 +2,23 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 
 const app = express();
+
 app.set("view engine", "pug");
+
+//localhost:3000/static/
+app.use("/static", express.static("public"));
+//localhost:3000/static/css/main.css
+
+//access to bootstrap
+app.use("/libs", express.static("node_modules"));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); //pars form input!
+
+app.use((req, res, next) => { //simple middleware
+    console.log(req.ip);
+    next();
+});
 
 const books = [];
 
@@ -13,9 +27,6 @@ app.get("/", (req, res) => {
         model: books
     };
     res.render("home/index", model);
-    /*const pathToFile = __dirname + "/views/index.html";
-    res.sendFile(pathToFile);*/
-    //res.send("It works!");
 });
 
 /*app.get("/books", (req, res) => {

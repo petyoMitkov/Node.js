@@ -13,9 +13,9 @@ http://telerikacademy.com/Courses/LectureResources/Video/10120/%D0%92%D0%B8%D0%B
 
 04. ts-node server.ts (start surver)
 
-        for testing -> curl http://localhost:3000/ -X POST
-        
-        for testing -> curl http://localhost:3000/books
+    for testing -> curl http://localhost:3000/ -X POST
+    
+    for testing -> curl http://localhost:3000/books
 
 06. npm install --save body-parser 
     npm install --save-dev  @types/body-parser
@@ -24,8 +24,8 @@ http://telerikacademy.com/Courses/LectureResources/Video/10120/%D0%92%D0%B8%D0%B
 07. npm install --save pug 
     npm install --save-dev @types/pug
 
- Others
+### Others
  
-    * npm install -g nodemon    
-    * npm install --save-dev nodemon    
-    * tsc -init (create tsconfig.json)
+* npm install -g nodemon    
+* npm install --save-dev nodemon    
+* tsc -init (create tsconfig.json)

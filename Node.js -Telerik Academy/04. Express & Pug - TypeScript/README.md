@@ -1,4 +1,4 @@
-Express & Pug - TypeScript
+# Express & Pug - TypeScript
 http://telerikacademy.com/Courses/LectureResources/Video/10120/%D0%92%D0%B8%D0%B4%D0%B5%D0%BE-27-%D1%84%D0%B5%D0%B2%D1%80%D1%83%D0%B0%D1%80%D0%B8-%D0%94%D0%BE%D0%BD%D1%87%D0%BE
 
 01. npm init
@@ -12,7 +12,9 @@ http://telerikacademy.com/Courses/LectureResources/Video/10120/%D0%92%D0%B8%D0%B
     (install typescript, don't forget --save)
 
 04. ts-node server.ts (start surver)
+
         for testing -> curl http://localhost:3000/ -X POST
+        
         for testing -> curl http://localhost:3000/books
 
 06. npm install --save body-parser 
@@ -22,8 +24,8 @@ http://telerikacademy.com/Courses/LectureResources/Video/10120/%D0%92%D0%B8%D0%B
 07. npm install --save pug 
     npm install --save-dev @types/pug
 
-athers: 
-    npm install -g nodemon
-    npm install --save-dev nodemon
-
-    tsc -init (create tsconfig.json)
+ Others
+ 
+    * npm install -g nodemon    
+    * npm install --save-dev nodemon    
+    * tsc -init (create tsconfig.json)
